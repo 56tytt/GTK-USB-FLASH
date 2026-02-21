@@ -1,0 +1,23 @@
+[package]
+name = "gtkBURN"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+gtk4 = "0.7"
+
+libadwaita = "0.5"
+crossbeam-channel = "0.5"
+libc = "0.2"
+tokio = { version = "1.49.0", features = ["full"] }
+rfd = "0.14"
+
+
+[package.metadata.generate-rpm]
+summary = "Burn Station Pro 2026 - The fastest Linux ISO burner"
+license = "MIT"
+
+# פה אנחנו אומרים לו: "קח את הקובץ המהיר שיצרנו, ושים אותו בתיקיית התוכנות של המערכת"
+assets = [
+    { source = "target/release/gtkBURN", dest = "/usr/bin/gtkBURN", mode = "755" }
+]
